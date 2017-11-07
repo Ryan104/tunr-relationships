@@ -1,5 +1,7 @@
 var db = require('../models');
 var Manager = db.models.Manager;
+const Artist = db.models.Artist;
+const Ad = db.models.Ad;
 
 function index(req, res) {
 	Manager.findAll().then(function(managers) {
@@ -8,7 +10,7 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  Manager.findById(req.params.id)
+  Manager.findById(req.params.id, {include: [Artist, Ad]})
   .then(function(manager){
     if(!manager) res.send("manager not found");
     else res.json(manager);

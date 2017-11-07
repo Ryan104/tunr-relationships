@@ -3,4 +3,11 @@
 	<h3>{{oneManager.email}}</h3>
 	<h3>{{oneManager.office_number}}</h3>
 	<h3>{{oneManager.cell_phone_number}}</h3>
+	<h3>Artists:</h3>
+	<ul>
+		<li *ngFor="let artist of oneManager.artists">{{artist.name}}</li>
+	</ul>
+	<h3>Ad:</h3>
+	<p>{{oneManager.ad.headline}}</p>
+	<a href={{oneManager.ad.url}}>{{oneManager.ad.url}}</a>
 </div>
